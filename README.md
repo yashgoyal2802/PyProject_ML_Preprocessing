@@ -5,3 +5,5 @@ Functionality to be added
     -> Changing images to greyscale
     -> Extracting features from file name
     -> Storing images in a numpy array with corresponding labels from the filename
+    -> Resizing images
+    -> Renaming files/images
