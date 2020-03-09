@@ -1,6 +1,4 @@
-import os
 import numpy as np
-import cv2
 import glob
-
-
+import cv2
+import os
