@@ -28,7 +28,18 @@ def img_resize():
     print("============================================================================================\n")
 
 def img_to_grey():
-    pass
+    print("\n============================================================================================")
+    print("GREYSCALLING IMAGES")
+    print("============================================================================================")
+
+    for my_img in PATH:
+        img = cv2.imread(my_img)
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        cv2.imwrite(my_img, gray)
+    print("\n============================================================================================")
+    print("Completed Greyscalling Images")
+    print("============================================================================================\n")
+
 
 def extracting_features():
     pass
@@ -38,5 +49,3 @@ def convert_filetype():
 
 def img_to_numpy_w_label():
     pass
-
-img_resize()
