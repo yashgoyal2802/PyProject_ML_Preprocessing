@@ -5,8 +5,8 @@ import os
 
 # PATH = input("Enter the path to your files: ")
 PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
-# for myfiles in PATH:
-#     print(myfiles)
+for myfiles in PATH:
+    print(myfiles)
 
 
 def img_resize():
@@ -42,10 +42,18 @@ def img_to_grey():
 
 
 def extracting_features():
-    pass
+    x = input("Enter the feature separating symbol (E.g:- '_' or '-'): ")
+    y = int(input("Enter the offset of the separating symbol: "))
+    z = []
+    for myfiles in PATH:
+        z.append(myfiles.split('.')[0].split('\\')[-1].split(x)[y:])
+    return z
+
 
 def convert_filetype():
     pass
 
 def img_to_numpy_w_label():
     pass
+
+
