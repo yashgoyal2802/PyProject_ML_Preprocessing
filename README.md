@@ -6,4 +6,4 @@ Functionality to be added:<br>
 <br>-> Extracting features from file name</br>
    <br> -> Storing images in a numpy array with corresponding labels from the filename</br>
     <br>-> Resizing images</br>
-    <br>-> Renaming files/images</br>
+   
