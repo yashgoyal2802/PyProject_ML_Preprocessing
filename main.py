@@ -6,8 +6,6 @@ from PIL import Image
 
 # PATH = input("Enter the path to your files: ")
 PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
-# for myfiles in PATH:
-#     print(myfiles)
 
 
 def img_resize():
@@ -75,36 +73,14 @@ def img_to_numpy_w_label():
     return final_list
 
 
-# def convert_filetype():
-#     # y = glob.glob(input("Enter the path of the image/images you want to convert"))
-#     y = "C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.*"
-#     y = glob.glob(y)
-#
-#     pngs = []
-#
-#     for pth in y:
-#         print("=====")
-#         print(pth)
-#         if pth[-3:] == 'png':
-#             name = pth.split('\\')[-1].split('.')[0]
-#             pngs.append((name, pth))
-#
-#     x = int(input("Enter \n1. for .png to .jpg\n2. for .jpg to .png\n-->"))
-#
-#     if x == 1:
-#         print("X is 1")
-#         for (name, file) in pngs:
-#             print("IN THE LOOP")
-#             im = Image.open(file)
-#
-#             rgb_im = im.convert('RGB')
-#
-#             rgb_im.save(file.replace("png", "jpg"), quality=95)
-                # for (imgname, imgpath) in pngs:
-                #     im = Image.open(imgpath).convert("RGB")
-                #     imgname = imgname + ".jpeg"
-                #     im.save(imgname, "jpeg")
-                #     print("am here")
+def convert_filetype():
+    print("\n============================================================================================")
+    print("CONVERTING ALL PNG FILES TO JPG")
+    print("============================================================================================")
+    y = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.png")
 
+    for im_png in y:
+        im = cv2.imread(im_png)
+        cv2.imwrite(im_png[:-3] + 'jpg', im)
 
 
