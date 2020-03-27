@@ -1,11 +1,22 @@
 import numpy as np
 import glob
 import cv2
-import os
+import pickle
 from PIL import Image
 
 # PATH = input("Enter the path to your files: ")
 PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
+
+
+def convert_filetype():
+    print("\n============================================================================================")
+    print("CONVERTING ALL PNG FILES TO JPG")
+    print("============================================================================================")
+    y = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.png")
+
+    for im_png in y:
+        im = cv2.imread(im_png)
+        cv2.imwrite(im_png[:-3] + 'jpg', im)
 
 
 def img_resize():
@@ -41,12 +52,12 @@ def img_to_grey():
     print("============================================================================================\n")
 
 
-def extracting_features():
+def extracting_features(x, y):
     print("\n============================================================================================")
     print("EXTRACTING FEATURES")
     print("============================================================================================")
-    x = input("Enter the feature separating symbol (E.g:- '_' or '-'): ")
-    y = int(input("Enter the offset of the separating symbol: "))
+    # x = input("Enter the feature separating symbol (E.g:- '_' or '-'):  ")
+    # y = int(input("Enter the offset of the separating symbol:  "))
     z = []
     for myfiles in PATH:
         z.append(myfiles.split('.')[0].split('\\')[-1].split(x)[y:])
@@ -70,17 +81,10 @@ def img_to_numpy_w_label():
 
     final_list = [(i, j) for i, j in zip(op_list, z)]
 
+    f = open('numpy_images_with_labels.pckl', 'wb')
+    pickle.dump(final_list, f)
+    print('Values stored in: "numpy_images_with_labels.pckl"')
+    f.close()
+
     return final_list
-
-
-def convert_filetype():
-    print("\n============================================================================================")
-    print("CONVERTING ALL PNG FILES TO JPG")
-    print("============================================================================================")
-    y = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.png")
-
-    for im_png in y:
-        im = cv2.imread(im_png)
-        cv2.imwrite(im_png[:-3] + 'jpg', im)
-
 
