@@ -14,16 +14,16 @@ PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessi
 def submit():
     set_path(path_entry.get())
 
-    if var1 == 1:
+    if var1.get() == 1:
         convert_filetype()
 
-    if var2 == 1:
+    if var2.get() == 1:
         img_resize(b_width.get(), b_height.get())
 
-    if var3 == 1:
+    if var3.get() == 1:
         img_to_grey()
 
-    if var4 == 1:
+    if var4.get() == 1:
         img_to_numpy_w_label(e.get(), f.get())
 
 

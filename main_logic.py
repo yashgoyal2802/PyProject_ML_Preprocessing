@@ -73,12 +73,12 @@ def extracting_features(x, y):
     return z
 
 
-def img_to_numpy_w_label():
+def img_to_numpy_w_label(x, y):
     print("\n============================================================================================")
     print("IMAGES TO NUMPY ARRAY")
     print("============================================================================================")
-
-    z = extracting_features()
+    y = int(y)
+    z = extracting_features(x, y)
 
     op_list = []
     final_list = []
