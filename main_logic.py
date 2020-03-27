@@ -8,23 +8,32 @@ from PIL import Image
 PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
 
 
+def set_path(path):
+    global PATH
+    PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
+    # PATH = glob.glob(path)
+    # print('Path Set!')
+
+
 def convert_filetype():
     print("\n============================================================================================")
     print("CONVERTING ALL PNG FILES TO JPG")
     print("============================================================================================")
     y = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.png")
 
+    # y = PATH + '\\*.png'
+
     for im_png in y:
         im = cv2.imread(im_png)
         cv2.imwrite(im_png[:-3] + 'jpg', im)
 
 
-def img_resize():
+def img_resize(temp_width, temp_height):
     print("\n============================================================================================")
     print("RESIZING IMAGES")
     print("============================================================================================")
-    temp_width = int(input("Enter the width to resize the image to:     "))
-    temp_height = int(input("Enter the height to resize the image to:   "))
+    # temp_width = int(input("Enter the width to resize the image to:     "))
+    # temp_height = int(input("Enter the height to resize the image to:   "))
 
     for my_img in PATH:
         img = cv2.imread(my_img)
