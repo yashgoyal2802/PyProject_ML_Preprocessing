@@ -8,7 +8,6 @@ var2 = IntVar()
 var3 = IntVar()
 var4 = IntVar()
 
-print("BC kahan hu mai!!")
 
 PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
 
@@ -58,23 +57,17 @@ d.grid(row=5, column=0, sticky="W")
 Label(window, text='Extraction Parameters:').grid(row=5, column=1)
 
 Label(window, text="Enter the feature separating symbol:").grid(row=6, column=1, sticky="e")
-Label(window, text="(E.g:- '_' or '-'):  ").grid(row=7, column=1, sticky="e")
+Label(window, text="(E.g:- '_' or '-'\t Default: '_'):  ").grid(row=7, column=1, sticky="e")
 
 e = Entry(window)
 e.grid(row=6, column=2, sticky="e")
 
-Label(window, text="Enter the offset of the separating symbol: ").grid(row=8, column=1, sticky="e")
+Label(window, text="Enter the offset of the separating symbol(Default: 1): ").grid(row=8, column=1, sticky="e")
 Label(window, text="(i.e. after how many '_' or '-' to start extracting the features)").grid(row=9, column=1, sticky="e")
 
 f = Entry(window)
 f.grid(row=8, column=2, sticky="e")
 
-g = Text(window, height=7, width=50, state='disabled')
-g.configure(state='normal')
-g.insert('end', 'This is a Log of the Program\n')
-g.configure(state='disabled')
-g.grid(row=10, column=0, sticky="w")
-
-Button(window, text="Submit", width=10, command=submit).grid(row=11, column=2)
+Button(window, text="Submit", width=10, command=submit).grid(row=11, column=0)
 
 window.mainloop()
