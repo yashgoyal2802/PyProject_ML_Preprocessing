@@ -3,7 +3,7 @@ import glob
 import cv2
 import pickle
 from PIL import Image
-
+from pickle_reader import read_pickle
 
 PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
 
@@ -103,6 +103,8 @@ def img_to_numpy_w_label(x, y):
     pickle.dump(final_list, f)
     print('Values stored in: "numpy_images_with_labels.pckl"')
     f.close()
+
+    read_pickle()
 
     print("\n============================================================================================")
     print("IMAGES COMVERTED AND STORED")

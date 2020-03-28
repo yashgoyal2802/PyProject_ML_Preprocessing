@@ -1,5 +1,6 @@
 from tkinter import *
 from main_logic import *
+
 window = Tk()
 window.title("Py ML Pre-processing")
 
@@ -15,7 +16,6 @@ PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessi
 def submit():
 
     if var1.get() == 1:
-        print("Converting file to jpg")
         convert_filetype()
 
     if var2.get() == 1:
