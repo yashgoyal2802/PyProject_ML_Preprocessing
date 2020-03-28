@@ -1,21 +1,22 @@
 from tkinter import *
 from main_logic import *
 window = Tk()
-window.title("Py ML Preprocessing")
+window.title("Py ML Pre-processing")
 
 var1 = IntVar()
 var2 = IntVar()
 var3 = IntVar()
 var4 = IntVar()
 
-PATH = glob.glob(
-    "C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
+print("BC kahan hu mai!!")
+
+PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
 
 
 def submit():
-    set_path(path_entry.get())
 
     if var1.get() == 1:
+        print("Converting file to jpg")
         convert_filetype()
 
     if var2.get() == 1:
@@ -28,11 +29,11 @@ def submit():
         img_to_numpy_w_label(e.get(), f.get())
 
 
-text2 = Label(window, text='Enter the Path', anchor="w")
+text2 = Label(window, text='Place Images in Path: ', anchor="w")
 text2.grid(row=1, column=0, sticky="W")
 
-path_entry = Entry(window, width=35)
-path_entry.grid(row=1, column=0, sticky="E", padx=5)
+path_entry = Label(window, text='C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\')
+path_entry.grid(row=1, column=0, sticky="E", padx=150)
 
 # By default, the variable is set to 1 if the button is selected, and 0 otherwise.
 a = Checkbutton(window, text='Images to JPG', variable=var1)
@@ -74,6 +75,6 @@ g.insert('end', 'This is a Log of the Program\n')
 g.configure(state='disabled')
 g.grid(row=10, column=0, sticky="w")
 
-Button(window, text="Submit", width=10).grid(row=11, column=2)
+Button(window, text="Submit", width=10, command=submit).grid(row=11, column=2)
 
 window.mainloop()
