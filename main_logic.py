@@ -4,36 +4,19 @@ import cv2
 import pickle
 from PIL import Image
 
-# PATH = input("Enter the path to your files: ")
+
 PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
 
 
-def set_path(path):
-    global PATH
-    PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
-    # PATH = glob.glob(path)
-    # print('Path Set!')
-
-
 def convert_filetype():
-    print("\n============================================================================================")
-    print("CONVERTING ALL PNG FILES TO JPG")
-    print("============================================================================================")
     y = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.png")
-
-    # y = PATH + '\\*.png'
 
     for im_png in y:
         im = cv2.imread(im_png)
         cv2.imwrite(im_png[:-3] + 'jpg', im)
 
 
-def img_resize(temp_width, temp_height):
-    print("\n============================================================================================")
-    print("RESIZING IMAGES")
-    print("============================================================================================")
-    # temp_width = int(input("Enter the width to resize the image to:     "))
-    # temp_height = int(input("Enter the height to resize the image to:   "))
+def img_resize(temp_width=100, temp_height=100):
 
     for my_img in PATH:
         img = cv2.imread(my_img)
@@ -42,15 +25,13 @@ def img_resize(temp_width, temp_height):
         print('Resized Dimensions:   ', resized_img.shape)
         cv2.imwrite(my_img, resized_img)
 
-    print("\n============================================================================================")
-    print("Completed Resizing Images")
-    print("============================================================================================\n")
-
 
 def img_to_grey():
     print("\n============================================================================================")
     print("GREYSCALLING IMAGES")
     print("============================================================================================")
+
+    global PATH
 
     for my_img in PATH:
         img = cv2.imread(my_img)
@@ -61,12 +42,15 @@ def img_to_grey():
     print("============================================================================================\n")
 
 
-def extracting_features(x, y):
+def extracting_features(x='_', y=1):
     print("\n============================================================================================")
     print("EXTRACTING FEATURES")
     print("============================================================================================")
     # x = input("Enter the feature separating symbol (E.g:- '_' or '-'):  ")
     # y = int(input("Enter the offset of the separating symbol:  "))
+
+    global PATH
+
     z = []
     for myfiles in PATH:
         z.append(myfiles.split('.')[0].split('\\')[-1].split(x)[y:])
@@ -77,6 +61,9 @@ def img_to_numpy_w_label(x, y):
     print("\n============================================================================================")
     print("IMAGES TO NUMPY ARRAY")
     print("============================================================================================")
+
+    global PATH
+
     y = int(y)
     z = extracting_features(x, y)
 
