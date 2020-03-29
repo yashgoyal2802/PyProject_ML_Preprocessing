@@ -10,7 +10,7 @@ var3 = IntVar()
 var4 = IntVar()
 
 
-PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
+PATH = glob.glob(".\\Active_Workspace\\*.jpg")
 
 
 def submit():
@@ -31,7 +31,7 @@ def submit():
 text2 = Label(window, text='Place Images in Path: ', anchor="w")
 text2.grid(row=1, column=0, sticky="W")
 
-path_entry = Label(window, text='C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\')
+path_entry = Label(window, text='.\\PyProject_ML_Preprocessing\\Active_Workspace\\')
 path_entry.grid(row=1, column=0, sticky="E", padx=150)
 
 # By default, the variable is set to 1 if the button is selected, and 0 otherwise.

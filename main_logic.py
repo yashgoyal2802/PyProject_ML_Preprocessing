@@ -5,14 +5,14 @@ import pickle
 from PIL import Image
 from pickle_reader import read_pickle
 
-PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
+PATH = glob.glob(".\\Active_Workspace\\*.jpg")
 
 
 def convert_filetype():
     print("\n============================================================================================")
     print("CONVERTING IMAGES TO GREYSCALE")
     print("============================================================================================")
-    y = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.png")
+    y = glob.glob(".\\Active_Workspace\\*.png")
 
     for im_png in y:
         im = cv2.imread(im_png)
