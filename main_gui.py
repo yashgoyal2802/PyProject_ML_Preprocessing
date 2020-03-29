@@ -1,7 +1,7 @@
 from tkinter import *
 from main_logic import *
 window = Tk()
-window.title("Py ML Preprocessing")
+window.title("Py ML Pre-processing")
 
 var1 = IntVar()
 var2 = IntVar()
