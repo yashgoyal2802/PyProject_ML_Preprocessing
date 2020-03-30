@@ -10,7 +10,7 @@ PATH = glob.glob(".\\Active_Workspace\\*.jpg")
 
 def convert_filetype():
     print("\n============================================================================================")
-    print("CONVERTING IMAGES TO GREYSCALE")
+    print("CONVERTING IMAGES TO JPG")
     print("============================================================================================")
     y = glob.glob(".\\Active_Workspace\\*.png")
 
