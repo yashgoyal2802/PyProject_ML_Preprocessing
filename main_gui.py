@@ -1,5 +1,6 @@
 from tkinter import *
 from main_logic import *
+
 window = Tk()
 window.title("Py ML Pre-processing")
 
@@ -8,12 +9,11 @@ var2 = IntVar()
 var3 = IntVar()
 var4 = IntVar()
 
-PATH = glob.glob(
-    "C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
+
+PATH = glob.glob(".\\Active_Workspace\\*.jpg")
 
 
 def submit():
-    set_path(path_entry.get())
 
     if var1.get() == 1:
         convert_filetype()
@@ -28,11 +28,11 @@ def submit():
         img_to_numpy_w_label(e.get(), f.get())
 
 
-text2 = Label(window, text='Enter the Path', anchor="w")
+text2 = Label(window, text='Place Images in Path: ', anchor="w")
 text2.grid(row=1, column=0, sticky="W")
 
-path_entry = Entry(window, width=35)
-path_entry.grid(row=1, column=0, sticky="E", padx=5)
+path_entry = Label(window, text='.\\PyProject_ML_Preprocessing\\Active_Workspace\\')
+path_entry.grid(row=1, column=0, sticky="E", padx=150)
 
 # By default, the variable is set to 1 if the button is selected, and 0 otherwise.
 a = Checkbutton(window, text='Images to JPG', variable=var1)
@@ -57,23 +57,17 @@ d.grid(row=5, column=0, sticky="W")
 Label(window, text='Extraction Parameters:').grid(row=5, column=1)
 
 Label(window, text="Enter the feature separating symbol:").grid(row=6, column=1, sticky="e")
-Label(window, text="(E.g:- '_' or '-'):  ").grid(row=7, column=1, sticky="e")
+Label(window, text="(E.g:- '_' or '-'\t Default: '_'):  ").grid(row=7, column=1, sticky="e")
 
 e = Entry(window)
 e.grid(row=6, column=2, sticky="e")
 
-Label(window, text="Enter the offset of the separating symbol: ").grid(row=8, column=1, sticky="e")
+Label(window, text="Enter the offset of the separating symbol(Default: 1): ").grid(row=8, column=1, sticky="e")
 Label(window, text="(i.e. after how many '_' or '-' to start extracting the features)").grid(row=9, column=1, sticky="e")
 
 f = Entry(window)
 f.grid(row=8, column=2, sticky="e")
 
-g = Text(window, height=7, width=50, state='disabled')
-g.configure(state='normal')
-g.insert('end', 'This is a Log of the Program\n')
-g.configure(state='disabled')
-g.grid(row=10, column=0, sticky="w")
-
-Button(window, text="Submit", width=10).grid(row=11, column=2)
+Button(window, text="Submit", width=10, command=submit).grid(row=11, column=0)
 
 window.mainloop()
