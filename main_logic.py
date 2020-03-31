@@ -70,7 +70,7 @@ def extracting_features(x='_', y=1):
     z = []
 
     for myfiles in PATH:
-        z.append(myfiles.split('.')[0].split('\\')[-1].split(x)[y:])
+        z.append(myfiles.split('.')[0].split(x)[y:])
 
     print("\n============================================================================================")
     print("FEATURE EXTRACTION COMPLETE")
