@@ -29,7 +29,7 @@ def img_resize(temp_width=100, temp_height=100):
     print("============================================================================================")
 
     global PATH
-
+    PATH = glob.glob(".\\Active_Workspace\\*.jpg")
     temp_width = int(temp_width)
     temp_height = int(temp_height)
 
@@ -68,9 +68,10 @@ def extracting_features(x='_', y=1):
     global PATH
 
     z = []
-
+    y = int(y)
     for myfiles in PATH:
-        z.append(myfiles.split('.')[0].split('\\')[-1].split(x)[y:])
+        # z.append(myfiles.split('.')[0].split('\\')[-1].split(x)[y:])
+        z.append(myfiles.split('.')[0].split(x)[y:])
 
     print("\n============================================================================================")
     print("FEATURE EXTRACTION COMPLETE")
