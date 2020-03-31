@@ -10,9 +10,6 @@ var3 = IntVar()
 var4 = IntVar()
 
 
-PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
-
-
 def submit():
 
     if var1.get() == 1:

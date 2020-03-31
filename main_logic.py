@@ -5,14 +5,12 @@ import pickle
 from PIL import Image
 from pickle_reader import read_pickle
 
-PATH = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.jpg")
-
 
 def convert_filetype():
     print("\n============================================================================================")
     print("CONVERTING IMAGES TO JPG")
     print("============================================================================================")
-    y = glob.glob("C:\\Users\\Varadh\\Documents\\GitHub\\PyProject_ML_Preprocessing\\Active_Workspace\\*.png")
+    y = glob.glob(".\\Active_Workspace\\*.png")
 
     for im_png in y:
         im = cv2.imread(im_png)
@@ -28,12 +26,11 @@ def img_resize(temp_width=100, temp_height=100):
     print("RESIZING IMAGES")
     print("============================================================================================")
 
-    global PATH
-    PATH = glob.glob(".\\Active_Workspace\\*.jpg")
+    temp_path = glob.glob(".\\Active_Workspace\\*.jpg")
     temp_width = int(temp_width)
     temp_height = int(temp_height)
 
-    for my_img in PATH:
+    for my_img in temp_path:
         img = cv2.imread(my_img)
         print('\nOriginal Dimensions:  ', img.shape)
         resized_img = cv2.resize(img, (temp_width, temp_height))
@@ -49,9 +46,9 @@ def img_to_grey():
     print("GREYSCALLING IMAGES")
     print("============================================================================================")
 
-    global PATH
+    temp_path = glob.glob(".\\Active_Workspace\\*.jpg")
 
-    for my_img in PATH:
+    for my_img in temp_path:
         img = cv2.imread(my_img)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         cv2.imwrite(my_img, gray)
@@ -65,13 +62,12 @@ def extracting_features(x='_', y=1):
     print("EXTRACTING FEATURES")
     print("============================================================================================")
 
-    global PATH
+    tpath = glob.glob(".\\Active_Workspace\\*.jpg")
 
     z = []
     y = int(y)
-    for myfiles in PATH:
-        z.append(myfiles.split('.')[0].split('\\')[-1].split(x)[y:])
-        # z.append(myfiles.split('.')[0].split(x)[y:])
+    for myfiles in tpath:
+        z.append(myfiles.split('\\')[-1].split('.')[0].split(x)[y:])
 
     print("\n============================================================================================")
     print("FEATURE EXTRACTION COMPLETE")
@@ -85,7 +81,7 @@ def img_to_numpy_w_label(x, y):
     print("IMAGES TO NUMPY ARRAY")
     print("============================================================================================")
 
-    global PATH
+    # global PATH
 
     y = int(y)
     z = extracting_features(x, y)
@@ -93,7 +89,9 @@ def img_to_numpy_w_label(x, y):
     op_list = []
     final_list = []
 
-    for myfiles in PATH:
+    tpath = glob.glob(".\\Active_Workspace\\*.jpg")
+
+    for myfiles in tpath:
         im = Image.open(myfiles)
         np_im = np.array(im)
         op_list.append(np_im)
